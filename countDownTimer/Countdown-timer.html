@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-hans-cmn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 50px;
+            background-color: yellowgreen;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            // 设置为00:00:00：00的格式
+            function toDouble(n){
+                return n<10?"0"+n:n;
+            }
+            //flag:定时器标识
+            // times：目的时间
+           var times,flag;
+           var btn=document.getElementById("confirmbtn");
+           function setRtime(){
+                var currentTime=new Date();
+                // 获取目的时间和当前时间的时间差
+                var result=times-currentTime;
+                // 如果已经达到目的时间，则关闭定时器,退出函数
+                if(result<=0){
+                   clearInterval(flag);
+                   return;
+                }
+                // 向下取整
+                var s=Math.floor(result/1000%60);
+                var m=Math.floor(result/1000/60%60);
+                var h=Math.floor(result/1000/60/60%24);
+                var d=Math.floor(result/1000/60/60/24);
+                // 修改dom元素内容
+                var span=document.getElementsByTagName("span");
+                span[0].innerHTML=toDouble(d)+"天";
+                span[1].innerHTML=toDouble(h)+"时";
+                span[2].innerHTML=toDouble(m)+"分";
+                span[3].innerHTML=toDouble(s)+"秒";
+           }
+           btn.onclick= function(){
+            //    获取目的时间值
+                var subTime=document.getElementsByTagName("input")[0].value;  
+                
+                // ①字符串匹配match
+                var dateArr=subTime.match(/\d+/g);
+                times=new Date(dateArr[0],dateArr[1]-1,dateArr[2],dateArr[3],dateArr[4],dateArr[5],);
+                // ②创建正则对象
+                // var pattern=/(\d{4})-(\d{1,2})-(\d{1,2})-(\d{2}):(\d{2}):(\d{2})/;
+                // // 通过正则对象的捕获组获取各个时间戳
+                // var matches=pattern.exec(subTime);
+                // times=new Date(matches[1],matches[2]-1,matches[3],matches[4],matches[5],matches[6]);
+                 flag=setInterval(setRtime,0);
+           };
+    
+        };
+    </script>
+</head>
+<body>
+    <div id="setTime">
+        <p>请设置时间（时间格式：2019-01-01-00:00:00)</p>
+        <input type="text">
+        <button id="confirmbtn">设置</button>
+        <br><br>
+    </div>
+    <div>
+        <span>00天</span>：
+        <span>00时</span>：
+        <span>00分</span>：
+        <span>00秒</span>
+    </div>
+</body>
+</html>
