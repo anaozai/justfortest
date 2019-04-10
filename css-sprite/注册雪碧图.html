@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+        a{text-decoration: none;float: right;}
+        form{
+            width: 300px;
+            height: 400px;
+            background-color: #ebf3fa;
+            overflow: hidden;
+        }
+        input[type="text"]{
+            display: block;
+            height: 30px;
+            margin:  30px auto;
+            padding-left: 15px;
+            outline: none;
+        }
+        .info{
+            width: 200px;
+            margin:  30px auto;
+        }
+        /* 分割线 */
+        i{width: 100%;height: 1px;display: block;background: #dddddd;}
+        /* 按钮雪碧图 */
+        button{
+            display:block;
+            width: 188px;
+            height: 30px;
+            margin: 30px auto;
+            background: url(http://img.mukewang.com/539a972b00013e9102280177.jpg); 
+            border: none;
+            cursor: pointer;
+        }
+        .btn01{background-position:  0 -6px;}
+        .btn02{ background-position:  0 -44px;}
+    </style>
+</head>
+<body>
+    <form>
+            <input type="text" placeholder="请输入用户名">
+            <input type="text" placeholder="请输入用户密码">
+            <div class="info">
+                <input type="checkbox" name="" id="">下次自动登录
+                <a href="">忘记密码?</a>
+            </div>
+            <button class="btn01"></button>
+            <i></i>
+            <button class="btn02"></button>
+    </form>
+
+</body>
+</html>
