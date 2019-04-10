@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3提示框</title>
+    <style>
+        div{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #dedede;
+        }
+        #container{
+            width: 600px;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+        /* 圆型div */
+        .item{
+            background: yellowgreen;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 20px;
+        }
+        /* 内容在div中垂直水平居中 */
+        a{  
+            font-size: 50px;
+            text-align: center;
+            color: #ffffff;
+            display: block;
+            line-height: 150px;
+        }
+     
+        /* 提示框 */
+        .til{
+            width:150px;
+            line-height: 30px;
+            background-color: #ffffff;
+            font-weight: lighter;
+            border-radius: 4px;
+            /* 调整出现位置和缓冲状态 */
+            position: absolute;;
+            margin:-550px 0 0 -20px;
+            -webkit-transition: margin .15s ease-in-out;
+            -moz-transition: margin .15s ease-in-out;
+        }
+        .item p{
+            padding: 0 15px;
+        }
+        /* 悬浮 */
+        .item:hover{
+            cursor: pointer;
+            background-color: rgb(78, 77, 83);
+        }
+        .item:hover a{
+            color: rgb(89, 184, 113);
+        }
+        /* 悬浮状态让提示框缓冲下降 */
+        .item:hover .til{
+            margin:-290px 0 0 -20px;
+            -webkit-transition: margin .15s ease-in-out;
+            -moz-transition: margin .15s ease-in-out;
+        }
+        /* 提示框小箭头 */
+        .arrow {
+            position:absolute;
+            margin:0px 0 0 85px;
+            width: 0; 
+            height: 0; 
+            border-left: 20px solid transparent;
+            border-right:20px solid transparent;
+            border-top: 20px solid #fff;
+    }
+    </style>
+
+</head>
+<body>
+    <div id="container">
+       <div class="item">
+            <a class="icon" >A</a>
+            <div class="til">
+                    <p class="info">Lorem ipsum dolor sit  consectetur.</p>
+                    <div class="arrow"></div>
+            </div>
+       </div>
+    <div class="item">
+            <a class="icon" >B</a>
+           <div class="til">
+                <p class="info">Lorem ipsum dolor sit  consectetur.</p>
+                <div class="arrow"></div>
+           </div>
+    </div>
+    <div class="item">
+        <a class="icon" >C</a>
+        <div class="til">
+                <p class="info">Lorem ipsum dolor sit  consectetur.</p>
+                <div class="arrow"></div>
+        </div>
+  </div>
+    </div>
+</body>
+</html>
+ 
